@@ -1,0 +1,19 @@
+.filters {
+    display: inline-block;
+    width: 50%;
+}
+
+.filters ul {
+    margin: 0;
+    padding: 0;
+}
+
+.filters li {
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.filters li.selected {
+    background-color: lightgray;
+}

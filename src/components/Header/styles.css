@@ -1,0 +1,21 @@
+.header {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0 10px 0;
+}
+
+.header-input {
+    padding: 10px 0 10px 10px;
+    font-size: 20px;
+    width: 81%;
+    border: 0px;
+}
+
+.header-item-input {
+    display: inline-block;
+    width: 10%;
+    transform: scale(2);
+    cursor: pointer;
+}
