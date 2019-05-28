@@ -4,12 +4,12 @@ import './styles.css';
 
 
 const Footer = (props) => {
-    const {itemsRemaining} = props;
+    const { itemsRemaining, handleFilterTodo } = props;
 
     return (
         <div className="footer">
             <div className="footer-tasks-left">{itemsRemaining} tasks left.</div>
-            <Filters />
+            <Filters handleFilterTodo={handleFilterTodo}/>
             <div className="footer-reset-items">Reset</div>
         </div>
     );
