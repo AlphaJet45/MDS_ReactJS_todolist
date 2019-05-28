@@ -42,6 +42,33 @@ class App extends React.Component {
       item.display = item.selected === false;
       return item;
     });
+    this.setState({ itemList: itemList });
+  }
+
+  handleFilterCompleted = (event) => {
+    event.preventDefault();
+
+    const { itemList } = this.state;
+    itemList.forEach(element => {
+      const item = element;
+      item.display = item.selected === true;
+      return item;
+    });
+    // Dans un objet, si clé = nom de la variable, c'est l'équivalent de itemList: itemList
+    this.setState({ itemList });
+  }
+
+  // Parenthèses pas obligées si 1 seul argument dans une fonction fléchée
+  handleFilterAll = (event) => {
+    event.preventDefault();
+
+    const { itemList } = this.state;
+    itemList.forEach(element => {
+      const item = element;
+      item.display = true;
+      return item;
+    });
+    this.setState({ itemList });
   }
 
   // true && expression = expression
@@ -59,17 +86,19 @@ class App extends React.Component {
 
         {itemList.map((item, index) =>
           // if (item.display === true) { ... }
-          item.display === true && 
-            <Item
-              key={index}
-              item={item}
-              handleSelect={() => this.handleSelect(index)}
-            />
+          item.display === true &&
+          <Item
+            key={index}
+            item={item}
+            handleSelect={() => this.handleSelect(index)}
+          />
         )}
 
         <Footer
           itemsRemaining={itemList.filter(item => item.selected === false).length}
+          handleFilterAll={this.handleFilterAll}
           handleFilterTodo={this.handleFilterTodo}
+          handleFilterCompleted={this.handleFilterCompleted}
         />
       </div>
     );
